@@ -10,10 +10,11 @@ import Domain
 import RxDataSources
 import RxSwift
 import RxCocoa
+import Resolver
 
-final class ListViewController: UIViewController, UISearchBarDelegate {
+final class ListViewController: UIViewController, UISearchBarDelegate, Resolving {
     // MARK: - ViewModel
-    var viewModel: ListViewModel!
+    @Injected var viewModel: ListViewModel
 
     // MARK: - IBOutlets
     @IBOutlet private weak var tableView: UITableView!

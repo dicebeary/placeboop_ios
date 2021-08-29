@@ -8,6 +8,7 @@
 import Domain
 import RxSwift
 import RxCocoa
+import Resolver
 
 class NewsInteractor {
     // Relays for local storing
@@ -16,12 +17,7 @@ class NewsInteractor {
     private let newsRelay = PublishRelay<[Article]>()
 
     // Dependencies
-    private let service: NewsServiceInterface
-
-    // Init
-    init(service: NewsServiceInterface) {
-        self.service = service
-    }
+    @Injected private var service: NewsServiceInterface
 }
 
 // MARK: - NewsInteractorInterface conformation

@@ -8,9 +8,10 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Resolver
 
 final class DetailsViewController: UIViewController {
-    var viewModel: DetailsViewModel!
+    @Injected var viewModel: DetailsViewModel
 
     @IBOutlet private weak var highlightImageView: UIImageView!
     @IBOutlet private weak var languageLabel: UILabel!

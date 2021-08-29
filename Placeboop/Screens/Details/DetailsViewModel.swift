@@ -8,14 +8,12 @@
 import Domain
 import RxSwift
 import RxCocoa
+import Resolver
 
 final class DetailsViewModel {
-    private let newsInteractor: NewsInteractorInterface
+    @Injected private var newsInteractor: NewsInteractorInterface
+    
     private let bag = DisposeBag()
-
-    init(newsInteractor: NewsInteractorInterface) {
-        self.newsInteractor = newsInteractor
-    }
 }
 
 // MARK: - Transform data flow

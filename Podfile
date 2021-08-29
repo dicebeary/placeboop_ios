@@ -15,8 +15,7 @@ target 'Core' do
   pod 'RxSwift', '~> 5.0'
   pod 'RxCocoa', '~> 5.0'
   pod 'Moya/RxSwift', '~> 14.0'
-  pod 'Swinject', '2.7.1'
-  pod 'SwinjectStoryboard', '2.2.1'
+  pod 'Resolver', '1.4.3'
   pod 'SwiftSpinner', '2.2.0'
 
   target 'CoreTests' do
@@ -44,10 +43,9 @@ target 'Placeboop' do
   pod 'RxDataSources', '~> 4.0'
   pod 'Kingfisher', '6.3.0'
   pod 'Moya/RxSwift', '~> 14.0'
-  pod 'Swinject', '2.7.1'
-  pod 'SwinjectStoryboard', '2.2.1'
+  pod 'Resolver', '1.4.3'
   pod 'SwiftGen', '6.4.0'
-  pod "SwiftSpinner", '2.2.0'
+  pod 'SwiftSpinner', '2.2.0'
 
   target 'PlaceboopTests' do
     pod 'SwiftyMocky', '4.0.4'

@@ -8,18 +8,14 @@
 import Foundation
 import RxSwift
 import Moya
+import Resolver
 
 class NewsService: NewsServiceInterface {
 
-    var provider: MoyaProvider<NewsApi>
-
-    init(provider: MoyaProvider<NewsApi>) {
-        self.provider = provider
-    }
+    @Injected private var provider: MoyaProvider<NewsApi>
 
     func getNewsList(text: String?) -> Single<NewsApiModel> {
         return provider.rx.request(.topHeadlines(text: text))
-            .activateLoadingIndicator()
             .filterSuccessfulStatusCodes()
             .parseError()
             .map(NewsApiModel.self)
@@ -27,7 +23,6 @@ class NewsService: NewsServiceInterface {
 
     func getSources() -> Single<SourcesApiModel> {
         return provider.rx.request(.sources)
-            .activateLoadingIndicator()
             .filterSuccessfulStatusCodes()
             .parseError()
             .map(SourcesApiModel.self)

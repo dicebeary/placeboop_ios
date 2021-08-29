@@ -8,17 +8,13 @@
 import Domain
 import RxSwift
 import RxCocoa
+import Resolver
 
 final class ListViewModel {
-    private let newsInteractor: NewsInteractorInterface
-    private let navigator: NavigatorInterface
+    @Injected private var newsInteractor: NewsInteractorInterface
+    @Injected private var navigator: NavigatorInterface
+    
     private let bag = DisposeBag()
-
-    init(newsInteractor: NewsInteractorInterface,
-         navigator: NavigatorInterface) {
-        self.newsInteractor = newsInteractor
-        self.navigator = navigator
-    }
 }
 
 // MARK: - Transform data flow
@@ -48,7 +44,6 @@ extension ListViewModel: ViewModelManipulator {
             .subscribe { [weak self] _ in
                 self?.navigator.push(from: viewController, to: UIConstants.StoryboardIdentifier.details)
             }.disposed(by: bag)
-
     }
 }
 
