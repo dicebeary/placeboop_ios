@@ -15,14 +15,14 @@ import Resolver
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
     let bag = DisposeBag()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        window = UIWindow()
         
-//        let navController = UINavigationController(rootViewController: ListViewController())
-//        window?.rootViewController = navController
-//        window?.makeKeyAndVisible()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let rootCoordinator = RootCoordinator(window: window!)
+        rootCoordinator.start()
 
         return true
     }
